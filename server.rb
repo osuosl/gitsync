@@ -9,6 +9,8 @@ post '/payload' do
   #puts "I got some JSON: #{push["commits"].inspect}"
 
   push["commits"].each do |commit|
-      puts "#{commit}"
+      puts "Author: #{commit["author"]}"
+      puts "Commiter: #{commit["commiter"]}"
+      puts "Message: #{commit["message"]}"
   end
 end
