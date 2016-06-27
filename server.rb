@@ -7,4 +7,5 @@ post '/payload' do
 
   push[:commits].each do |commit|
       puts "#{commit}"
+  end
 end
