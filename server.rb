@@ -6,9 +6,9 @@ require 'pp'
 
 post '/payload' do
   push = JSON.parse(request.body.read)
-  puts "I got some JSON: #{push.inspect}"
+  puts "I got some JSON: #{push[:commits].inspect}"
 
-  push[:commits].each do |commit|
-      puts "#{commit}"
-  end
+  #push[:commits].each do |commit|
+  #puts "#{commit}"
+  #end
 end
