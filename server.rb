@@ -16,6 +16,8 @@ post '/payload' do
     push["commits"].each do |commit|
         puts "Author: #{commit["author"]}"
         puts "Committer: #{commit["committer"]}"
+        message = commit["message"].split(/\n/)
+
         puts "Message: #{commit["message"].split(/\n/)}"
     end
 end
