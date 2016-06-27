@@ -3,6 +3,7 @@ require 'sinatra'
 require 'json'
 require 'rubygems'
 require 'pp'
+# This is apparently not how to do it
 #require 'rimesync'
 
 post '/payload' do
