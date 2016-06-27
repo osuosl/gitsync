@@ -1,5 +1,8 @@
+#! /usr/bin/ruby
 require 'sinatra'
 require 'json'
+require 'rubygems'
+require 'pp'
 
 post '/payload' do
   push = JSON.parse(request.body.read)
