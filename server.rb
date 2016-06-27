@@ -10,7 +10,7 @@ post '/payload' do
 
   push["commits"].each do |commit|
       puts "Author: #{commit["author"]}"
-      puts "Commiter: #{commit["commiter"]}"
+      puts "Committer: #{commit["committer"]}"
       puts "Message: #{commit["message"]}"
   end
 end
