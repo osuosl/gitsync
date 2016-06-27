@@ -3,19 +3,18 @@ require 'sinatra'
 require 'json'
 require 'rubygems'
 require 'pp'
+require 'rimesync'
 
 post '/payload' do
-  push = JSON.parse(request.body.read)
-  #puts "I got some JSON: #{push["commits"].inspect}"
+    ts = rimesync.Timesync("http://timesync-staging.osuosl.org/v0/")
+    ts.authenticate(username="test", password="test", auth_type="password")
 
-  push["commits"].each do |commit|
-      commit.each do |thing|
-=begin
+    push = JSON.parse(request.body.read)
+    #puts "I got some JSON: #{push["commits"].inspect}"
+
+    push["commits"].each do |commit|
         puts "Author: #{commit["author"]}"
         puts "Committer: #{commit["committer"]}"
-        puts "Message: #{commit["message"]}"
-=end
-        puts "#{thing}"
-      end
-  end
+        puts "Message: #{commit["message"].split(/\n)}"
+    end
 end
