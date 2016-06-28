@@ -17,7 +17,16 @@ post '/payload' do
         puts "Author: #{commit["author"]}"
         puts "Committer: #{commit["committer"]}"
         message = commit["message"].split(/\n/)
-
-        puts "Message: #{commit["message"].split(/\n/)}"
+        user = message[1].split(' ', 2)
+        project = message[2].split(' ', 2)
+        duration = message[3].split(' ', 2)
+        activities = message[4].split(' ', 2)
+        issue = message[5].split(' ', 2)
+        
+        puts "User: #{user}"
+        puts "User: #{project}"
+        puts "User: #{duration}"
+        puts "User: #{activities}"
+        puts "User: #{issue}"
     end
 end
