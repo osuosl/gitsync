@@ -11,13 +11,12 @@ post '/payload' do
     #ts.authenticate(username="test", password="test", auth_type="password")
 
     push = JSON.parse(request.body.read)
-    #puts "I got some JSON: #{push["commits"].inspect}"
 
     push["commits"].each do |commit|
         #puts "Author: #{commit["author"]}"
         #puts "Committer: #{commit["committer"]}"
         message = commit["message"].split(/\n/)
-        puts "#{message}"
+        #puts "#{message}"
         user = message[2].split(' ', 2)
         project = message[3].split(' ', 2)
         duration = message[4].split(' ', 2)
