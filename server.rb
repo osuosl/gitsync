@@ -3,8 +3,7 @@ require 'sinatra'
 require 'json'
 require 'rubygems'
 require 'pp'
-# This is apparently not how to do it
-#require 'rimesync'
+require_relative 'rimesync'
 
 post '/payload' do
     #ts = rimesync.Timesync("http://timesync-staging.osuosl.org/v0/")
