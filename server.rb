@@ -10,10 +10,14 @@ post '/payload' do
     #ts.authenticate(username="test", password="test", auth_type="password")
 
     puts "#{request.body.read}"
-    #push = JSON.parse(request.body.read)
-    #puts "#{push}"
+    thing = request.body.read
+    #thing = thing.to_json
+    push = JSON.parse(thing)
+    puts "#{push}"
 
+    #puts "#{push["commits"]}"
     #push["commits"].each do |commit|
+    #     puts "#{commit}"
     #    #puts "Author: #{commit["author"]}"
     #    #puts "Committer: #{commit["committer"]}"
     #    message = commit["message"].split(/\n/)
@@ -34,4 +38,7 @@ post '/payload' do
     #    puts "Date Worked: #{date_worked}"
     #    puts "Notes: #{notes}"
     #end
+    # This prevents a NoMethodError for some reason
+    # Something about the return value being a string?
+    "done"
 end
