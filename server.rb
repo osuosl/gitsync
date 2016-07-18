@@ -18,30 +18,27 @@ post '/payload' do
         message = commit["message"].split(/\n/)
         #puts "#{message}"
         user = commit["author"]["username"]
-        duration = message[2].split(' ', 2)
-        duration = duration[1].to_i
-        activities = message[3].split(' ', 2)
-        activities = activities[1].split(',')
-        issue_uri = message[4].split(' ', 2)
-        issue_uri = issue_uri[1]
-        date_worked = commit["timestamp"]
+        duration = message[2].split(' ', 2)[1].to_i
+        #duration = duration[1].to_i
+        activities = message[3].split(' ', 2)[1].split(',')
+        #activities = activities[1].split(',')
+        issue_uri = message[4].split(' ', 2)[1]
+        #issue_uri = issue_uri[1]
+        date_worked = commit["timestamp"].split('T')[0]
         notes = message[0]
         
     end
 
-    puts "User: #{user}"
+    project = push["repository"]["name"]
+
     puts "Duration: #{duration}"
+    puts "User: #{user}"
+    puts "Project: #{project}"
     puts "Activities: #{activities}"
     puts "Issue URI: #{issue_uri}"
     puts "Date Worked: #{date_worked}"
     puts "Notes: #{notes}"
 
-    project = push["repository"]["name"]
-    puts "Project: #{project}"
-
-    #TODO: remove this
-    #temporary until I update the commit data I'm using
-    issue_uri = "http://github.com"
     time = {
         'duration': duration,
         'user': user,
