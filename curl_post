@@ -1,21 +1,21 @@
 #!/bin/bash
 curl -X POST -H "Content-Type: application/json" -H 'Accept: application/json' -d '{
    "ref":"refs/heads/json_parsing",
-   "before":"5ccc1439d655df5a31a28891e544c564b3c8dcac",
-   "after":"59afe600ea6542c29328eedecd481805b9956ad2",
+   "before":"59afe600ea6542c29328eedecd481805b9956ad2",
+   "after":"d1a0f702d801b4dba6ae02352e60dd2f89a7e705",
    "created":false,
    "deleted":false,
    "forced":false,
-   "base_ref":"nil",
-   "compare":"https://github.com/osuosl/gitsync/compare/5ccc1439d655...59afe600ea65",
+   "base_ref":null,
+   "compare":"https://github.com/osuosl/gitsync/compare/59afe600ea65...d1a0f702d801",
    "commits":[
       {
-         "id":"c7a4b8992cafb9cf50c607d983d5101929b33a09",
-         "tree_id":"a3b5ab311af9b5b1a63702ad78ddfd8f84dd8fe8",
+         "id":"d1a0f702d801b4dba6ae02352e60dd2f89a7e705",
+         "tree_id":"8a9707873c3c8294b3b845311760618400602fdf",
          "distinct":true,
-         "message":"Trying to get rimesync working",
-         "timestamp":"2016-06-28T13:18:53-07:00",
-         "url":"https://github.com/osuosl/gitsync/commit/c7a4b8992cafb9cf50c607d983d5101929b33a09",
+         "message":"Got curl script working, need better commit data\n\nDuration: 11\nActivities: anger\nIssue: http://github.com",
+         "timestamp":"2016-07-18T10:55:19-07:00",
+         "url":"https://github.com/osuosl/gitsync/commit/d1a0f702d801b4dba6ae02352e60dd2f89a7e705",
          "author":{
             "name":"MaraJade",
             "email":"catbookgirl@gmail.com",
@@ -27,37 +27,10 @@ curl -X POST -H "Content-Type: application/json" -H 'Accept: application/json' -
             "username":"MaraJade"
          },
          "added":[
-
+            "curl_post"
          ],
          "removed":[
-
-         ],
-         "modified":[
-            "server.rb"
-         ]
-      },
-      {
-         "id":"59afe600ea6542c29328eedecd481805b9956ad2",
-         "tree_id":"499f9bc37eb7c8c1fd9349e6ae5337accdc65503",
-         "distinct":true,
-         "message":"Realized that curl is a good way to test, need push data",
-         "timestamp":"2016-07-06T16:42:38-07:00",
-         "url":"https://github.com/osuosl/gitsync/commit/59afe600ea6542c29328eedecd481805b9956ad2",
-         "author":{
-            "name":"MaraJade",
-            "email":"catbookgirl@gmail.com",
-            "username":"MaraJade"
-         },
-         "committer":{
-            "name":"MaraJade",
-            "email":"catbookgirl@gmail.com",
-            "username":"MaraJade"
-         },
-         "added":[
             "curl.txt"
-         ],
-         "removed":[
-
          ],
          "modified":[
             "server.rb"
@@ -65,12 +38,12 @@ curl -X POST -H "Content-Type: application/json" -H 'Accept: application/json' -
       }
    ],
    "head_commit":{
-      "id":"59afe600ea6542c29328eedecd481805b9956ad2",
-      "tree_id":"499f9bc37eb7c8c1fd9349e6ae5337accdc65503",
+      "id":"d1a0f702d801b4dba6ae02352e60dd2f89a7e705",
+      "tree_id":"8a9707873c3c8294b3b845311760618400602fdf",
       "distinct":true,
-      "message":"Realized that curl is a good way to test, need push data",
-      "timestamp":"2016-07-06T16:42:38-07:00",
-      "url":"https://github.com/osuosl/gitsync/commit/59afe600ea6542c29328eedecd481805b9956ad2",
+      "message":"Got curl script working, need better commit data\n\nDuration: 1 hr\nActivities: anger\nIssue: 1",
+      "timestamp":"2016-07-18T10:55:19-07:00",
+      "url":"https://github.com/osuosl/gitsync/commit/d1a0f702d801b4dba6ae02352e60dd2f89a7e705",
       "author":{
          "name":"MaraJade",
          "email":"catbookgirl@gmail.com",
@@ -82,10 +55,10 @@ curl -X POST -H "Content-Type: application/json" -H 'Accept: application/json' -
          "username":"MaraJade"
       },
       "added":[
-         "curl.txt"
+         "curl_post"
       ],
       "removed":[
-
+         "curl.txt"
       ],
       "modified":[
          "server.rb"
@@ -142,13 +115,13 @@ curl -X POST -H "Content-Type: application/json" -H 'Accept: application/json' -
       "deployments_url":"https://api.github.com/repos/osuosl/gitsync/deployments",
       "created_at":1467044338,
       "updated_at":"2016-06-27T16:43:35Z",
-      "pushed_at":1467848715,
+      "pushed_at":1468864699,
       "git_url":"git://github.com/osuosl/gitsync.git",
       "ssh_url":"git@github.com:osuosl/gitsync.git",
       "clone_url":"https://github.com/osuosl/gitsync.git",
       "svn_url":"https://github.com/osuosl/gitsync",
-      "homepage":"nil",
-      "size":3893,
+      "homepage":null,
+      "size":3889,
       "stargazers_count":0,
       "watchers_count":0,
       "language":"Ruby",
@@ -157,7 +130,7 @@ curl -X POST -H "Content-Type: application/json" -H 'Accept: application/json' -
       "has_wiki":true,
       "has_pages":false,
       "forks_count":0,
-      "mirror_url":"nil",
+      "mirror_url":null,
       "open_issues_count":2,
       "forks":0,
       "open_issues":2,

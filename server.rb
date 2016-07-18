@@ -3,42 +3,60 @@ require 'sinatra'
 require 'json'
 require 'rubygems'
 require 'pp'
-require_relative 'rimesync/rimesync.rb'
+require_relative 'rimesync/lib/rimesync.rb'
 
 post '/payload' do
-    #ts = Timesync.new(baseurl="http://timesync-staging.osuosl.org/v0/")
-    #ts.authenticate(username="test", password="test", auth_type="password")
+    ts = TimeSync.new(baseurl="http://timesync-staging.osuosl.org/v0/")
+    ts.authenticate(username:"test", password:"test", auth_type:"password")
 
-    puts "#{request.body.read}"
-    thing = request.body.read
-    #thing = thing.to_json
-    push = JSON.parse(thing)
-    puts "#{push}"
+    push = JSON.parse(request.body.read)
 
-    #puts "#{push["commits"]}"
-    #push["commits"].each do |commit|
-    #     puts "#{commit}"
-    #    #puts "Author: #{commit["author"]}"
-    #    #puts "Committer: #{commit["committer"]}"
-    #    message = commit["message"].split(/\n/)
-    #    #puts "#{message}"
-    #    user = commit["author"]["username"]
-    #    project = message[3].split(' ', 2)
-    #    duration = message[4].split(' ', 2)
-    #    activities = message[5].split(' ', 2)
-    #    issue = message[6].split(' ', 2)
-    #    date_worked = commit["timestamp"]
-    #    notes = message[0]
-    #    
-    #    puts "User: #{user}"
-    #    puts "Project: #{project}"
-    #    puts "Duration: #{duration}"
-    #    puts "Activities: #{activities}"
-    #    puts "Issue: #{issue}"
-    #    puts "Date Worked: #{date_worked}"
-    #    puts "Notes: #{notes}"
-    #end
+    user, duration, activities, issue_uri, date_worked, notes = nil
+
+    push["commits"].each do |commit|
+        # Get all the necessary time data
+        message = commit["message"].split(/\n/)
+        #puts "#{message}"
+        user = commit["author"]["username"]
+        duration = message[2].split(' ', 2)
+        duration = duration[1].to_i
+        activities = message[3].split(' ', 2)
+        activities = activities[1].split(',')
+        issue_uri = message[4].split(' ', 2)
+        issue_uri = issue_uri[1]
+        date_worked = commit["timestamp"]
+        notes = message[0]
+        
+    end
+
+    puts "User: #{user}"
+    puts "Duration: #{duration}"
+    puts "Activities: #{activities}"
+    puts "Issue URI: #{issue_uri}"
+    puts "Date Worked: #{date_worked}"
+    puts "Notes: #{notes}"
+
+    project = push["repository"]["name"]
+    puts "Project: #{project}"
+
+    #TODO: remove this
+    #temporary until I update the commit data I'm using
+    issue_uri = "http://github.com"
+    time = {
+        'duration': duration,
+        'user': user,
+        'project': project,
+        'activities': activities,
+        'date_worked': date_worked,
+        'issue_uri': issue_uri,
+        'notes': notes
+    }
+    puts "#{time}"
+
+    res = ts.create_time(time)
+    puts "#{res}"
+
     # This prevents a NoMethodError for some reason
     # Something about the return value being a string?
-    "done"
+    "done\n"
 end
