@@ -13,13 +13,13 @@ curl -X POST -H "Content-Type: application/json" -H 'Accept: application/json' -
          "id":"d1a0f702d801b4dba6ae02352e60dd2f89a7e705",
          "tree_id":"8a9707873c3c8294b3b845311760618400602fdf",
          "distinct":true,
-         "message":"Got curl script working, need better commit data\n\nDuration: 11\nActivities: anger\nIssue: http://github.com",
+         "message":"Got curl script working, need better commit data\n\nDuration: 11\nActivities: docs\nIssue: http://github.com",
          "timestamp":"2016-07-18T10:55:19-07:00",
          "url":"https://github.com/osuosl/gitsync/commit/d1a0f702d801b4dba6ae02352e60dd2f89a7e705",
          "author":{
             "name":"MaraJade",
             "email":"catbookgirl@gmail.com",
-            "username":"MaraJade"
+            "username":"test"
          },
          "committer":{
             "name":"MaraJade",
