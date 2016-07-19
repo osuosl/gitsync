@@ -39,6 +39,7 @@ post '/payload' do
     puts "Date Worked: #{date_worked}"
     puts "Notes: #{notes}"
 
+    duration = 1
     time = {
         'duration': duration,
         'user': user,
