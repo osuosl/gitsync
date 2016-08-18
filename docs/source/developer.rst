@@ -35,8 +35,16 @@ Once the webhook is set up correctly, the server should recieve the information.
 Setting Up the Webhook
 ----------------------
 
-Gitsync currently uses `ngrok`_ to expose a port on localhost to the internet,
-so that the script can recieve data from Github.
+The "curl_post" script is used for testing. It simulates getting a commit from
+Github with the information that is required for a valid time. While the server
+is running, run
+
+    ::
+        $ ./curl_post
+
+
+If you want to get data directly from Github, you can also use `ngrok`_ to
+expose a port on localhost to the internet.
 
 1. Once ngrok is installed, run 
 
