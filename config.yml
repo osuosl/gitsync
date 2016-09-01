@@ -1,0 +1,4 @@
+baseurl: "test"
+username: "test"
+password: "test"
+ldap: false
