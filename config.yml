@@ -1,4 +1,4 @@
-baseurl: "test"
+baseurl: "http://timesync-staging.osuosl.org/v0"
 username: "test"
 password: "test"
 ldap: false
