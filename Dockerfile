@@ -6,5 +6,3 @@ COPY . /opt/gitsync
 WORKDIR /opt/gitsync
 
 RUN bundle install
-
-CMD ["ruby", "server.rb"]

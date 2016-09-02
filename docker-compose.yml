@@ -1,0 +1,12 @@
+version: '2'
+services:
+    gitsync:
+        build:
+            context: .
+            dockerfile: 'Dockerfile'
+        ports:
+            - "4567:4567"
+        volumes:
+            - .:/opt/gitsync
+        working_dir: /opt/gitsync
+        command: ruby server.rb

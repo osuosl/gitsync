@@ -5,6 +5,11 @@ require 'rubygems'
 require 'pp'
 require_relative 'rimesync/lib/rimesync.rb'
 
+configure do
+  # VERY IMPORTANT. Will not work in Docker otherwise
+  set :bind, '0.0.0.0'
+end
+
 post '/payload' do
     # Auth with Timesync. This will need to be removed once a real auth system
     # is implemented
