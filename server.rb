@@ -1,33 +1,19 @@
 #! /usr/bin/ruby
 require 'sinatra'
+require 'sinatra/config_file'
 require 'json'
 require 'yaml'
 require 'rubygems'
 require 'pp'
 require_relative 'rimesync/lib/rimesync.rb'
 
-def parse_config(config_path = "config.yml")
-  config = {
-    :baseurl => nil,
-    :username => nil,
-    :password => nil,
-    :auth_type => "password",
-  }
-
-  # Read "config.yml" and update the config hash with its values
-  config.merge! Hash[YAML::load(open(config_path)).map {|k, v| [k.to_sym, v]}]
-
-  config
-end
+config_file 'config.yml'
 
 post '/payload' do
-  # Parse "config.yml" for server/authentication configuration values
-  config = parse_config
-
   # Auth with Timesync. This will need to be removed once a real auth system
   # is implemented
-  ts = TimeSync.new(baseurl=config[:baseurl])
-  ts.authenticate(username:config[:username], password:config[:password], auth_type:config[:auth_type])
+  ts = TimeSync.new(baseurl=settings.baseurl)
+  ts.authenticate(username:settings.username, password:settings.password, auth_type:settings.auth_type)
 
   # Parses the data for reading
   push = JSON.parse(request.body.read)
