@@ -27,8 +27,8 @@ The information to create a new time will come from the following sources:
 * Project: commit[url]
 * Activities: commit[message] - activities
 * Date Worked: commit[timestamp]
-* Issue URI: commit[message] - issue uri, or we may be able to get this out of the
-* push info somehow
+* Issue URI: commit[message] - issue uri, or we may be able to get this out of
+  the push info somehow
 * Notes: commit[message] - message, the commit message itself
 
 Commit Template

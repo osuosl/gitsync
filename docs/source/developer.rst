@@ -40,15 +40,16 @@ Github with the information that is required for a valid time. While the server
 is running, run
 
     ::
+
         $ ./curl_post
 
 
 If you want to get data directly from Github, you can also use `ngrok`_ to
 expose a port on localhost to the internet.
 
-1. Once ngrok is installed, run 
+1. Once ngrok is installed, run
 
-    :: 
+    ::
 
         $ ./ngrok http 4567
         [info]
