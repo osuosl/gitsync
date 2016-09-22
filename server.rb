@@ -3,7 +3,8 @@ require 'sinatra'
 require 'json'
 require 'rubygems'
 require 'pp'
-require_relative 'rimesync/lib/rimesync.rb'
+require 'bundler/setup'
+require 'rimesync'
 
 post '/payload' do
     # Auth with Timesync. This will need to be removed once a real auth system
