@@ -50,3 +50,11 @@ build-iPhoneSimulator/
 .rvmrc
 
 rimesync/
+
+# for docs
+/docs/build/
+/docs/venv/
+
+# for vim users
+*.swp
+*.swo
